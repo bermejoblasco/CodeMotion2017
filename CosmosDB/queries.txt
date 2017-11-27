@@ -1,0 +1,14 @@
+DocumentDB
+Join 
+
+SELECT f.id as family, c.FirstName AS child, p.GivenName AS pet 
+FROM Families f
+JOIN c IN f.Children 
+JOIN p IN c.Pets 
+
+Graph
+SELECT {"FirstName":name._value, "Age": Age._value} as Person 
+FROM Persons p
+Join name in p.firstName
+Join Age in p.age
+where Age._value < 44
